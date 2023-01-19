@@ -12,6 +12,9 @@ const imageForPage = require('./assets/images/concert.png');
 export default function App() {
   const [text, onChangeText] = React.useState();
   const ticketPrice = 99.99;
+  const [state, setVisibility] = useState(false);
+
+  const visibleStyles = state ? styles.visible : undefined;
 
   return (
     <View style={styles.container}>
@@ -21,13 +24,13 @@ export default function App() {
         onChangeText={onChangeText}
       />
               <View style={styles.footerContainer}>
-                <TouchableOpacity style={styles.Button}>
+                <TouchableOpacity onPress={() => {setVisibility(true);}} style={styles.Button}>
                 <Button theme="primary" label="Find The Cost" />
                 </TouchableOpacity>
         </View>
       <StatusBar style="auto" />
       <View>
-        <Text style={styles.total}>Ticket Cost: ${(text * ticketPrice).toFixed(2)}</Text>
+        <Text style={[styles.total, visibleStyles]}>Ticket Cost: ${(text * ticketPrice).toFixed(2)}</Text>
       </View>
       <View style={styles.imageContainer}>
         <Image source={imageForPage} style={styles.image} />
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
   total: {
     fontSize: 30,  
     fontWeight: 'bold',
+    display: 'none',
   },
   header: {
     fontSize: 50,
@@ -71,5 +75,8 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     padding: 12,
-  }
+  },
+  visible: {
+    display: 'flex'
+  },
 });
