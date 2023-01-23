@@ -24,9 +24,7 @@ export default function App() {
         onChangeText={onChangeText}
       />
               <View style={styles.footerContainer}>
-                <TouchableOpacity onPress={() => {setVisibility(true);}} style={styles.Button}>
-                <Button theme="primary" label="Find The Cost" />
-                </TouchableOpacity>
+                <Button theme="primary" label="Find The Cost" onPress={() => {setVisibility(true);}} style={styles.Button} />
         </View>
       <StatusBar style="auto" />
       <View>
