@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import React, {useState} from 'react';
 import * as SplashScreen from 'expo-splash-screen';
-import Button from './components/Button';
+import Pressable from './components/Button';
 
 SplashScreen.preventAutoHideAsync();
 setTimeout(SplashScreen.hideAsync, 2000);
@@ -24,7 +24,7 @@ export default function App() {
         onChangeText={onChangeText}
       />
               <View style={styles.footerContainer}>
-                <Button theme="primary" label="Find The Cost" onPress={() => {setVisibility(true);}} style={styles.Button} />
+              <Pressable style={styles.Button} onPress={() => {setVisibility(true);}} theme="primary" label="Find The Cost" />
         </View>
       <StatusBar style="auto" />
       <View>
